@@ -13,15 +13,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ProviderScope(
       child: MaterialApp(
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
-          routes: {
-            "/": (context) => const Adduser(),
-            // '/output': (context) => const DisplayData(),
-          }),
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
+          useMaterial3: true,
+        ),
+        routes: {
+          "/": (context) => const Adduser(),
+        },
+      ),
     );
   }
 }

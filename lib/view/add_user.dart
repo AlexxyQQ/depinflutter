@@ -215,21 +215,32 @@ class _AdduserState extends ConsumerState<Adduser> {
                                     .toList(),
                               ],
                             ),
-                            // Calculate the total marks of the user
                             Text(
-                                "Total Marks: ${data.searchResults[0].moduleMarks.values.reduce((value, element) => value + element)}"),
-                            // Calculate Result if less than 40 in any module then fail
-                            Text(
-                              "Result: ${data.searchResults[0].moduleMarks.values.any((mark) => mark < 40) ? "Fail" : "Pass"}",
+                              "Total Marks: ${data.searchResults[0].moduleMarks.values.reduce(
+                                (value, element) => value + element,
+                              )}",
                             ),
-                            // Calculate percentage
                             Text(
-                              "Percentage: ${data.searchResults[0].moduleMarks.values.reduce((value, element) => value + element) / data.searchResults[0].moduleMarks.length}",
+                              "Result: ${data.searchResults[0].moduleMarks.length == 4 && !data.searchResults[0].moduleMarks.values.any((mark) => mark < 40) ? "Pass" : "Fail"}",
                             ),
-                            // Calculate division(80>first, 50-59> second, 40-49> third, <40 fail)
+
                             Text(
-                              "Division: ${data.searchResults[0].moduleMarks.values.reduce((value, element) => value + element) / data.searchResults[0].moduleMarks.length > 80 ? "First" : data.searchResults[0].moduleMarks.values.reduce((value, element) => value + element) / data.searchResults[0].moduleMarks.length > 60 ? "Second" : data.searchResults[0].moduleMarks.values.reduce((value, element) => value + element) / data.searchResults[0].moduleMarks.length > 50 ? "Third" : data.searchResults[0].moduleMarks.values.reduce((value, element) => value + element) / data.searchResults[0].moduleMarks.length > 40 ? "Fourth" : "Fail"}",
+                              "Percentage: ${data.searchResults[0].moduleMarks.length == 4 ? data.searchResults[0].moduleMarks.values.reduce(
+                                    (value, element) => value + element,
+                                  ) / data.searchResults[0].moduleMarks.length : "NA"}",
                             ),
+                            Text(
+                              "Division: ${data.searchResults[0].moduleMarks.length == 4 ? data.searchResults[0].moduleMarks.values.reduce(
+                                    (value, element) => value + element,
+                                  ) / data.searchResults[0].moduleMarks.length > 80 ? "First" : data.searchResults[0].moduleMarks.values.reduce(
+                                    (value, element) => value + element,
+                                  ) / data.searchResults[0].moduleMarks.length > 60 ? "Second" : data.searchResults[0].moduleMarks.values.reduce(
+                                    (value, element) => value + element,
+                                  ) / data.searchResults[0].moduleMarks.length > 50 ? "Third" : data.searchResults[0].moduleMarks.values.reduce(
+                                    (value, element) => value + element,
+                                  ) / data.searchResults[0].moduleMarks.length > 40 ? "Fourth" : "Fail" : "NA"}",
+                            ),
+
                             const SizedBox(height: 20.0),
                           ],
                         )
